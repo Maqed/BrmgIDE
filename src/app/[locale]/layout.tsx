@@ -20,15 +20,15 @@ export default async function RootLayout({
   params,
   children,
 }: {
-  params: Promise<{ lang: string }>;
+  params: Promise<{ locale: string }>;
   children: React.ReactNode;
 }) {
-  const lang = (await params).lang;
+  const locale = (await params).locale;
 
   return (
-    <html lang={lang}>
-      <body dir={isRtlLang(lang) ? "rtl" : "ltr"}>
-        <RootProvider i18n={provider(lang)}>{children}</RootProvider>
+    <html lang={locale}>
+      <body dir={isRtlLang(locale) ? "rtl" : "ltr"}>
+        <RootProvider i18n={provider(locale)}>{children}</RootProvider>
       </body>
     </html>
   );

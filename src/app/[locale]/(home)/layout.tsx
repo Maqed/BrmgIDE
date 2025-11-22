@@ -6,10 +6,10 @@ export default async function Layout({
   params,
   children,
 }: {
-  params: Promise<{ lang: string }>;
+  params: Promise<{ locale: string }>;
   children: ReactNode;
 }) {
-  const { lang } = await params;
+  const { locale } = await params;
 
-  return <HomeLayout {...baseOptions(lang)}>{children}</HomeLayout>;
+  return <HomeLayout {...baseOptions(locale)}>{children}</HomeLayout>;
 }

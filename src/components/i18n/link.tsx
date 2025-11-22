@@ -7,8 +7,8 @@ function Link({
   className,
   ...props
 }: NextLinkProps & React.ComponentProps<"a">) {
-  const { lang } = useParams();
-  return <NextLink href={`/${lang}${href}`} {...props} />;
+  const { locale } = useParams();
+  return <NextLink href={`/${locale}${href}`} {...props} />;
 }
 
 export default Link;
