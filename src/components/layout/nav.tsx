@@ -37,7 +37,7 @@ export function Nav() {
         "sticky top-0 z-50 w-full  border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/50"
       )}
     >
-      <nav className="mx-auto flex h-14 w-full items-center justify-between px-4">
+      <nav className="mx-auto flex h-(--nav-height) w-full items-center justify-between px-4">
         <div className="flex items-center gap-5">
           <Link className="rounded-md p-2 hover:bg-accent" href="/">
             <Logo />

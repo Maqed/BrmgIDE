@@ -10,6 +10,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --nav-height: 3.8rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
