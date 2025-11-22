@@ -7,6 +7,7 @@ import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import ChooseLocale from "../i18n/choose-locale";
+import { ThemeToggle } from "./theme-toggle";
 
 type LinkItem = {
   title: string;
@@ -45,7 +46,10 @@ export function Nav() {
             {t("title")}
           </Link>
         </div>
-        <ChooseLocale />
+        <div className="flex items-center gap-5">
+          <ThemeToggle />
+          <ChooseLocale />
+        </div>
         {/* <Button
           aria-controls="mobile-menu"
           aria-expanded={open}
