@@ -3,6 +3,7 @@ import { defineI18nUI } from "fumadocs-ui/i18n";
 import { isRtlLang } from "rtl-detect";
 import { i18n } from "@/lib/i18n";
 import "../global.css";
+import { NextIntlClientProvider } from "next-intl";
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -28,7 +29,9 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body dir={isRtlLang(locale) ? "rtl" : "ltr"}>
-        <RootProvider i18n={provider(locale)}>{children}</RootProvider>
+        <RootProvider i18n={provider(locale)}>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </RootProvider>
       </body>
     </html>
   );
