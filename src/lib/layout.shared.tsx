@@ -4,6 +4,9 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 export function baseOptions(locale: string): BaseLayoutProps {
   return {
     i18n,
+    searchToggle: {
+      enabled: false,
+    },
     nav: {
       enabled: false,
     },
