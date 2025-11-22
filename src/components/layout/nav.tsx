@@ -1,22 +1,11 @@
 "use client";
 import Logo from "@/components/brand/logo";
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
 import React from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import PythonIcon from "../icons/python";
-import NodejsIcon from "../icons/nodejs";
 
 type LinkItem = {
   title: string;
@@ -51,26 +40,11 @@ export function Nav() {
           <Link className="rounded-md p-2 hover:bg-accent" href="/">
             <Logo />
           </Link>
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent">
-                  {t("title")}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-muted/50 p-1 pr-1.5 dark:bg-background">
-                  <ul className="grid w-lg grid-cols-2 gap-2 rounded-md border bg-popover p-2 shadow">
-                    {learnLinks(t).map((item, i) => (
-                      <li key={i}>
-                        <ListItem {...item} />
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <Link href="/learn" className="rounded-md p-2 hover:bg-accent">
+            {t("title")}
+          </Link>
         </div>
-        <Button
+        {/* <Button
           aria-controls="mobile-menu"
           aria-expanded={open}
           aria-label="Toggle menu"
@@ -80,9 +54,9 @@ export function Nav() {
           variant="outline"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </Button>
+        </Button> */}
       </nav>
-      <MobileMenu open={open}>
+      {/* <MobileMenu open={open}>
         <NavigationMenu className="max-w-full">
           <div className="flex w-full flex-col gap-y-2">
             <span className="text-sm">{t("title")}</span>
@@ -91,7 +65,7 @@ export function Nav() {
             ))}
           </div>
         </NavigationMenu>
-      </MobileMenu>
+      </MobileMenu> */}
     </header>
   );
 }
@@ -155,18 +129,3 @@ function ListItem({
     </NavigationMenuLink>
   );
 }
-
-const learnLinks = (t: ReturnType<typeof useTranslations>): LinkItem[] => [
-  {
-    title: "Python",
-    href: "/learn/python",
-    description: t("python.description"),
-    icon: PythonIcon,
-  },
-  {
-    title: "Node.js",
-    href: "/learn/nodejs",
-    description: t("nodejs.description"),
-    icon: NodejsIcon,
-  },
-];
