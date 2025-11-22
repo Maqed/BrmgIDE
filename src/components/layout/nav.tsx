@@ -6,6 +6,7 @@ import React from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import ChooseLocale from "../i18n/choose-locale";
 
 type LinkItem = {
   title: string;
@@ -44,6 +45,7 @@ export function Nav() {
             {t("title")}
           </Link>
         </div>
+        <ChooseLocale />
         {/* <Button
           aria-controls="mobile-menu"
           aria-expanded={open}
