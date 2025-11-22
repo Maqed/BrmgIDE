@@ -4,13 +4,14 @@ import { ImageResponse } from "next/og";
 import { generate as DefaultImage } from "fumadocs-ui/og";
 
 export const revalidate = false;
+export const dynamic = "force-static";
 
 export async function GET(
   _req: Request,
   { params }: RouteContext<"/[locale]/og/learn/[...slug]">
 ) {
-  const { slug } = await params;
-  const page = source.getPage(slug.slice(0, -1));
+  const { slug, locale } = await params;
+  const page = source.getPage(slug.slice(0, -1), locale);
   if (!page) notFound();
 
   return new ImageResponse(
@@ -29,8 +30,11 @@ export async function GET(
 }
 
 export function generateStaticParams() {
-  return source.getPages().map((page) => ({
-    locale: page.locale,
-    slug: getPageImage(page).segments,
-  }));
+  return source
+    .getPages()
+    .filter((page) => page.locale === "en")
+    .map((page) => ({
+      locale: page.locale,
+      slug: getPageImage(page).segments,
+    }));
 }

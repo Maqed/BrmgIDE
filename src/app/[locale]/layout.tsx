@@ -5,7 +5,10 @@ import { i18n } from "@/lib/i18n";
 import "../global.css";
 import ClientProviders from "@/providers/client-providers";
 import { Nav } from "@/components/layout/nav";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -19,6 +22,10 @@ const { provider } = defineI18nUI(i18n, {
   },
 });
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   params,
   children,
@@ -27,6 +34,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = (await params).locale;
+
+  // Validate locale
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
   const dir = getLangDir(locale);
 
   return (

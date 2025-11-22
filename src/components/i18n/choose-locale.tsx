@@ -8,8 +8,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Languages } from "lucide-react";
+import { Suspense } from "react";
 
-function ChooseLocale() {
+function ChooseLocaleInner() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -44,6 +45,14 @@ function ChooseLocale() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+
+function ChooseLocale() {
+  return (
+    <Suspense fallback={<Languages />}>
+      <ChooseLocaleInner />
+    </Suspense>
   );
 }
 

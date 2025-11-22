@@ -1,8 +1,17 @@
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export default function HomePage() {
-  const t = useTranslations("/");
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  const t = await getTranslations("/");
   return (
     <div className="flex flex-col justify-center text-center h-[80vh]">
       <h1 className="text-2xl font-bold mb-4">{t("hello-world")}</h1>

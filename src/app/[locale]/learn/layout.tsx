@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { source } from "@/lib/source";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import { baseOptions } from "@/lib/layout.shared";
+import { setRequestLocale } from "next-intl/server";
 
 export default async function Layout({
   params,
@@ -11,6 +12,9 @@ export default async function Layout({
   children: ReactNode;
 }) {
   const { locale } = await params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <DocsLayout

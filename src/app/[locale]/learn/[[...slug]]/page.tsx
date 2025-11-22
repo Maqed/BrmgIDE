@@ -9,11 +9,16 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
+import { setRequestLocale } from "next-intl/server";
 
 export default async function Page(
   props: PageProps<"/[locale]/learn/[[...slug]]">
 ) {
   const params = await props.params;
+
+  // Enable static rendering
+  setRequestLocale(params.locale);
+
   const page = source.getPage(params.slug, params.locale);
   if (!page) notFound();
 
@@ -43,6 +48,10 @@ export async function generateMetadata(
   props: PageProps<"/[locale]/learn/[[...slug]]">
 ): Promise<Metadata> {
   const params = await props.params;
+
+  // Enable static rendering for metadata
+  setRequestLocale(params.locale);
+
   const page = source.getPage(params.slug, params.locale);
   if (!page) notFound();
 
