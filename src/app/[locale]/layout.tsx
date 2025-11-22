@@ -4,6 +4,7 @@ import { isRtlLang } from "rtl-detect";
 import { i18n } from "@/lib/i18n";
 import "../global.css";
 import { NextIntlClientProvider } from "next-intl";
+import { Nav } from "@/components/layout/nav";
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -30,7 +31,10 @@ export default async function RootLayout({
     <html lang={locale}>
       <body dir={isRtlLang(locale) ? "rtl" : "ltr"}>
         <RootProvider i18n={provider(locale)}>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <Nav />
+            {children}
+          </NextIntlClientProvider>
         </RootProvider>
       </body>
     </html>

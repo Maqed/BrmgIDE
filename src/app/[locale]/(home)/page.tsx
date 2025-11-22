@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 export default function HomePage() {
   const t = useTranslations("/");
   return (
-    <div className="flex flex-col justify-center text-center h-[90vh]">
+    <div className="flex flex-col justify-center text-center h-[80vh]">
       <h1 className="text-2xl font-bold mb-4">{t("hello-world")}</h1>
       <p>
         {t.rich("open-learn", {
