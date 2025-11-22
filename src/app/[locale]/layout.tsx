@@ -1,10 +1,11 @@
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { defineI18nUI } from "fumadocs-ui/i18n";
-import { isRtlLang } from "rtl-detect";
+import { getLangDir } from "rtl-detect";
 import { i18n } from "@/lib/i18n";
 import "../global.css";
-import { NextIntlClientProvider } from "next-intl";
+import ClientProviders from "@/providers/client-providers";
 import { Nav } from "@/components/layout/nav";
+import { NextIntlClientProvider } from "next-intl";
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -26,14 +27,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = (await params).locale;
+  const dir = getLangDir(locale);
 
   return (
     <html lang={locale}>
-      <body dir={isRtlLang(locale) ? "rtl" : "ltr"}>
+      <body dir={dir}>
         <RootProvider i18n={provider(locale)}>
           <NextIntlClientProvider>
-            <Nav />
-            {children}
+            <ClientProviders dir={dir}>
+              <Nav />
+              {children}
+            </ClientProviders>
           </NextIntlClientProvider>
         </RootProvider>
       </body>

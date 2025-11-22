@@ -4,6 +4,7 @@
     "": {
       "name": ".",
       "dependencies": {
+        "@radix-ui/react-direction": "^1.1.1",
         "@radix-ui/react-navigation-menu": "^1.2.14",
         "@radix-ui/react-slot": "^1.2.4",
         "@types/rtl-detect": "^1.0.3",
