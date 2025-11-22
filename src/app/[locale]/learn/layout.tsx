@@ -13,7 +13,11 @@ export default async function Layout({
   const { locale } = await params;
 
   return (
-    <DocsLayout {...baseOptions(locale)} tree={source.pageTree[locale]}>
+    <DocsLayout
+      {...baseOptions(locale)}
+      sidebar={{ enabled: false }}
+      tree={source.pageTree[locale]}
+    >
       {children}
     </DocsLayout>
   );
