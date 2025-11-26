@@ -1,5 +1,14 @@
+"use client";
 import Logo from "@/components/brand/logo";
-import { NavigationMenuLink } from "@/components/ui/navigation-menu";
+import { Button } from "../ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import React, { ReactNode } from "react";
 import { createPortal } from "react-dom";
@@ -7,15 +16,11 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import ChooseLocale from "../i18n/choose-locale";
 import { ThemeToggle } from "./theme-toggle";
-
-type LinkItem = {
-  title: string;
-  href: string;
-  icon: React.ComponentType<React.ComponentProps<"svg">>;
-  description?: string;
-};
+import { Menu, X } from "lucide-react";
+import { LANGUAGES, LanguageType } from "@/lib/learn";
 
 export function Nav({ StartComponent }: { StartComponent?: ReactNode }) {
+  const [open, setOpen] = React.useState(false);
   const t = useTranslations("nav.learn");
 
   return (
@@ -30,36 +35,52 @@ export function Nav({ StartComponent }: { StartComponent?: ReactNode }) {
           <Link className="rounded-md p-2 hover:bg-accent" href="/">
             <Logo />
           </Link>
-          <Link href="/learn" className="rounded-md p-2 hover:bg-accent">
-            {t("title")}
-          </Link>
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent">
+                  {t("title")}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-muted/50 p-1 pr-1.5 dark:bg-background">
+                  <ul className="grid w-lg grid-cols-2 gap-2 rounded-md border bg-popover p-2 shadow">
+                    {LANGUAGES.map((language) => (
+                      <ListItem
+                        {...language}
+                        key={`desktop-language-${language.id}`}
+                      />
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
         <div className="flex items-center gap-5">
           <ThemeToggle />
           <ChooseLocale />
+          <Button
+            aria-controls="mobile-menu"
+            aria-expanded={open}
+            aria-label="Toggle menu"
+            className="md:hidden"
+            onClick={() => setOpen(!open)}
+            size="icon"
+            variant="outline"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </Button>
         </div>
-        {/* <Button
-          aria-controls="mobile-menu"
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
-          size="icon"
-          variant="outline"
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </Button> */}
       </nav>
-      {/* <MobileMenu open={open}>
+      <MobileMenu open={open}>
         <NavigationMenu className="max-w-full">
           <div className="flex w-full flex-col gap-y-2">
             <span className="text-sm">{t("title")}</span>
-            {learnLinks(t).map((link) => (
-              <ListItem key={link.title} {...link} />
+            {LANGUAGES.map((language) => (
+              <ListItem key={`nav-mobile-${language.id}`} {...language} />
             ))}
           </div>
         </NavigationMenu>
-      </MobileMenu> */}
+      </MobileMenu>
     </header>
   );
 }
@@ -98,26 +119,26 @@ function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
 }
 
 function ListItem({
-  title,
-  description,
-  icon: Icon,
   className,
-  href,
   ...props
-}: React.ComponentProps<typeof NavigationMenuLink> & LinkItem) {
+}: React.ComponentProps<typeof NavigationMenuLink> & LanguageType) {
+  const { name: languageName, id: languageId, icon: Icon } = props;
+  const t = useTranslations(`languages.${languageId}`);
   return (
     <NavigationMenuLink
       className={cn("w-full flex-row gap-x-2", className)}
       {...props}
       asChild
     >
-      <Link href={href}>
+      <Link href={`/learn/${languageId}/introduction`}>
         <div className="flex aspect-square size-12 items-center justify-center rounded-md border bg-background/40 shadow-sm">
           <Icon className="size-5 text-foreground" />
         </div>
         <div className="flex flex-col items-start justify-center">
-          <span className="font-medium">{title}</span>
-          <span className="text-muted-foreground text-xs">{description}</span>
+          <span className="font-medium">{languageName}</span>
+          <span className="text-muted-foreground text-xs">
+            {t("description")}
+          </span>
         </div>
       </Link>
     </NavigationMenuLink>
