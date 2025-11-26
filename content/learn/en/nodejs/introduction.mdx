@@ -1,0 +1,96 @@
+---
+title: "Introduction to Node.js"
+description: "Learn the fundamentals of Node.js and why it's a powerful platform for building server-side applications"
+---
+
+# Introduction to Node.js
+
+## What is Node.js?
+
+Node.js is a powerful, open-source JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. Built on Chrome's V8 JavaScript engine, Node.js enables developers to use JavaScript for server-side programming, making it possible to build full-stack applications using a single programming language.
+
+## Why Use Node.js?
+
+### 1. **JavaScript Everywhere**
+
+With Node.js, you can use JavaScript for both frontend and backend development, reducing the complexity of learning multiple languages and allowing for better code reuse.
+
+### 2. **Non-blocking I/O**
+
+Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. This is particularly useful for building scalable network applications that handle many concurrent connections.
+
+### 3. **Fast Execution**
+
+Thanks to the V8 engine, Node.js compiles JavaScript directly to native machine code, resulting in fast execution times.
+
+### 4. **Rich Ecosystem**
+
+npm (Node Package Manager) provides access to over a million packages, making it easy to add functionality to your applications without reinventing the wheel.
+
+### 5. **Active Community**
+
+Node.js has a large and active community that contributes to its ecosystem, provides support, and continuously improves the platform.
+
+## Key Features
+
+- **Asynchronous and Event-Driven**: All APIs in Node.js are asynchronous, meaning the server doesn't wait for an API to return data before moving on to the next task.
+- **Single-Threaded**: Node.js uses a single-threaded model with event looping, making it highly scalable.
+- **Cross-Platform**: Write once, run anywhere - Node.js applications can run on Windows, Linux, and macOS.
+- **No Buffering**: Node.js applications output data in chunks, never buffering any data.
+
+## Common Use Cases
+
+Node.js excels in scenarios such as:
+
+- **RESTful APIs**: Building lightweight and efficient API servers
+- **Real-time Applications**: Chat applications, live notifications, collaborative tools
+- **Streaming Applications**: Processing data streams like video or audio
+- **Microservices**: Creating small, independent services that work together
+- **Command-line Tools**: Building CLI utilities and development tools
+
+## Your First Node.js Program
+
+Here's a simple "Hello World" example:
+
+```javascript
+// Create a file called app.js
+console.log("Hello, Node.js!");
+```
+
+Run it with:
+
+```bash
+node app.js
+```
+
+## Creating a Simple Server
+
+Node.js makes it easy to create a web server:
+
+```javascript
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World from Node.js!");
+});
+
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
+```
+
+Save this as `server.js` and run it with `node server.js`. Then open your browser to `http://localhost:3000` to see your server in action!
+
+## Next Steps
+
+Now that you understand the basics of Node.js, you're ready to:
+
+- Learn about npm and package management
+- Explore the Node.js module system
+- Understand asynchronous programming with callbacks, promises, and async/await
+- Build your first real-world application
+
+Node.js opens up a world of possibilities for JavaScript developers. Whether you're building APIs, real-time applications, or command-line tools, Node.js provides the tools and performance you need to succeed.
