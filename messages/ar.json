@@ -3,15 +3,17 @@
     "hello-world": "مرحبا بالعالم",
     "open-learn": "اضغط على <link>/learn</link> للبدء بالتعلم"
   },
+  "languages": {
+    "nodejs": {
+      "description": "بيئة جافاسكريبت لبناء تطبيقات قابلة للتوسع"
+    },
+    "python": {
+      "description": "لغة عالية المستوى للتطوير السريع"
+    }
+  },
   "nav": {
     "learn": {
-      "title": "تعلم",
-      "nodejs": {
-        "description": "بيئة جافاسكريبت لبناء تطبيقات قابلة للتوسع"
-      },
-      "python": {
-        "description": "لغة عالية المستوى للتطوير السريع"
-      }
+      "title": "تعلم"
     }
   }
 }

@@ -3,15 +3,17 @@
     "hello-world": "Hello World",
     "open-learn": "Press on <link>/learn</link> to start learning"
   },
+  "languages": {
+    "nodejs": {
+      "description": "JavaScript runtime for building scalable applications"
+    },
+    "python": {
+      "description": "High-level language for rapid development"
+    }
+  },
   "nav": {
     "learn": {
-      "title": "Learn",
-      "nodejs": {
-        "description": "JavaScript runtime for building scalable applications"
-      },
-      "python": {
-        "description": "High-level language for rapid development"
-      }
+      "title": "Learn"
     }
   }
 }
