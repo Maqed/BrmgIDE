@@ -5,10 +5,26 @@
   },
   "languages": {
     "nodejs": {
-      "description": "JavaScript runtime for building scalable applications"
+      "description": "JavaScript runtime for building scalable applications",
+      "content": {
+        "getting-started": {
+          "title": "Getting Started",
+          "list": {
+            "introduction": "Introduction"
+          }
+        }
+      }
     },
     "python": {
-      "description": "High-level language for rapid development"
+      "description": "High-level language for rapid development",
+      "content": {
+        "getting-started": {
+          "title": "Getting Started",
+          "list": {
+            "introduction": "Introduction"
+          }
+        }
+      }
     }
   },
   "nav": {

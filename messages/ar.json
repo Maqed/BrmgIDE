@@ -5,10 +5,26 @@
   },
   "languages": {
     "nodejs": {
-      "description": "بيئة جافاسكريبت لبناء تطبيقات قابلة للتوسع"
+      "description": "بيئة تشغيل جافاسكريبت لبناء تطبيقات قابلة للتوسع",
+      "content": {
+        "getting-started": {
+          "title": "البدء",
+          "list": {
+            "introduction": "مقدمة"
+          }
+        }
+      }
     },
     "python": {
-      "description": "لغة عالية المستوى للتطوير السريع"
+      "description": "لغة عالية المستوى للتطوير السريع",
+      "content": {
+        "getting-started": {
+          "title": "البدء",
+          "list": {
+            "introduction": "مقدمة"
+          }
+        }
+      }
     }
   },
   "nav": {
