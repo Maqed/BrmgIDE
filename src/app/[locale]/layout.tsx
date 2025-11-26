@@ -4,7 +4,6 @@ import { getLangDir } from "rtl-detect";
 import { i18n } from "@/lib/i18n";
 import "../global.css";
 import ClientProviders from "@/providers/client-providers";
-import { Nav } from "@/components/layout/nav";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -50,10 +49,7 @@ export default async function RootLayout({
       <body dir={dir}>
         <RootProvider i18n={provider(locale)}>
           <NextIntlClientProvider>
-            <ClientProviders dir={dir}>
-              <Nav />
-              {children}
-            </ClientProviders>
+            <ClientProviders dir={dir}>{children}</ClientProviders>
           </NextIntlClientProvider>
         </RootProvider>
       </body>
