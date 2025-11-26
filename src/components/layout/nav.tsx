@@ -25,9 +25,7 @@ export function Nav({ StartComponent }: { StartComponent?: ReactNode }) {
 
   return (
     <header
-      className={cn(
-        "sticky top-0 z-50 w-full  border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/50"
-      )}
+      className={cn("sticky top-0 z-50 w-full border-b border-border bg-nav")}
     >
       <nav className="mx-auto flex h-(--nav-height) w-full items-center justify-between px-4">
         <div className="flex items-center gap-5">
@@ -41,7 +39,7 @@ export function Nav({ StartComponent }: { StartComponent?: ReactNode }) {
                 <NavigationMenuTrigger className="bg-transparent">
                   {t("title")}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-muted/50 p-1 pr-1.5 dark:bg-background">
+                <NavigationMenuContent className="bg-muted/50 p-1 pr-1.5 dark:bg-nav">
                   <ul className="grid w-lg grid-cols-2 gap-2 rounded-md border bg-popover p-2 shadow">
                     {LANGUAGES.map((language) => (
                       <ListItem
@@ -97,8 +95,7 @@ function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
   return createPortal(
     <div
       className={cn(
-        "bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/50",
-        "fixed top-14 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-y md:hidden"
+        "fixed bg-nav/95 top-14 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-y md:hidden"
       )}
       id="mobile-menu"
     >
@@ -131,7 +128,7 @@ function ListItem({
       asChild
     >
       <Link href={`/learn/${languageId}/introduction`}>
-        <div className="flex aspect-square size-12 items-center justify-center rounded-md border bg-background/40 shadow-sm">
+        <div className="flex aspect-square size-12 items-center justify-center rounded-md border bg-nav/40 shadow-sm">
           <Icon className="size-5 text-foreground" />
         </div>
         <div className="flex flex-col items-start justify-center">
