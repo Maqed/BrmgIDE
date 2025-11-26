@@ -1,8 +1,7 @@
-"use client";
 import Logo from "@/components/brand/logo";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -16,20 +15,8 @@ type LinkItem = {
   description?: string;
 };
 
-export function Nav() {
-  const [open, setOpen] = React.useState(false);
+export function Nav({ StartComponent }: { StartComponent?: ReactNode }) {
   const t = useTranslations("nav.learn");
-
-  React.useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
 
   return (
     <header
@@ -39,6 +26,7 @@ export function Nav() {
     >
       <nav className="mx-auto flex h-(--nav-height) w-full items-center justify-between px-4">
         <div className="flex items-center gap-5">
+          {StartComponent}
           <Link className="rounded-md p-2 hover:bg-accent" href="/">
             <Logo />
           </Link>
