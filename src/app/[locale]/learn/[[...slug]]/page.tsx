@@ -10,6 +10,8 @@ import { getMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { setRequestLocale } from "next-intl/server";
+import { LANGUAGES } from "@/lib/learn";
+import { routing } from "@/i18n/routing";
 
 export default async function Page(
   props: PageProps<"/[locale]/learn/[[...slug]]">
@@ -41,7 +43,19 @@ export default async function Page(
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+  const noSlug = routing.locales.map((locale) => ({
+    lang: locale,
+    slug: [],
+  }));
+  const languageParams = LANGUAGES.flatMap((lang) =>
+    routing.locales.map((locale) => ({
+      lang: locale,
+      slug: [lang.id],
+    }))
+  );
+  const fumaParams = source.generateParams();
+  const params = [...noSlug, ...languageParams, ...fumaParams];
+  return params;
 }
 
 export async function generateMetadata(
