@@ -6,9 +6,11 @@ import { Nav } from "./nav";
 function LearnLayout({
   children,
   shouldShowSidebar,
+  language,
 }: {
   children: ReactNode;
   shouldShowSidebar: boolean;
+  language: string;
 }) {
   if (!shouldShowSidebar) {
     return (
@@ -22,7 +24,7 @@ function LearnLayout({
     <SidebarProvider className="flex flex-col">
       <Nav StartComponent={<SidebarTrigger />} />
       <div className="flex flex-1">
-        <LearnSidebar />
+        <LearnSidebar language={language} />
         <SidebarInset>{children}</SidebarInset>
       </div>
     </SidebarProvider>

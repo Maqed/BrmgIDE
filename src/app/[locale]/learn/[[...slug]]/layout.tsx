@@ -18,8 +18,10 @@ export default async function Layout({
   setRequestLocale(locale);
 
   let shouldShowSidebar = true;
-
-  if (!slug?.length) {
+  let language = "";
+  if (slug?.length) {
+    language = slug[0];
+  } else {
     shouldShowSidebar = false;
   }
 
@@ -29,7 +31,7 @@ export default async function Layout({
       sidebar={{ enabled: false }}
       tree={source.pageTree[locale]}
     >
-      <LearnLayout shouldShowSidebar={shouldShowSidebar}>
+      <LearnLayout language={language} shouldShowSidebar={shouldShowSidebar}>
         {children}
       </LearnLayout>
     </DocsLayout>
