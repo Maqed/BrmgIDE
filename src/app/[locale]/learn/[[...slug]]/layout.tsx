@@ -3,18 +3,25 @@ import { source } from "@/lib/source";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import { baseOptions } from "@/lib/layout.shared";
 import { setRequestLocale } from "next-intl/server";
+import LearnLayout from "@/components/layout/learn-layout";
 
 export default async function Layout({
   params,
   children,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; slug?: string[] }>;
   children: ReactNode;
 }) {
-  const { locale } = await params;
+  const { locale, slug } = await params;
 
   // Enable static rendering
   setRequestLocale(locale);
+
+  let shouldShowSidebar = true;
+
+  if (!slug?.length) {
+    shouldShowSidebar = false;
+  }
 
   return (
     <DocsLayout
@@ -22,7 +29,9 @@ export default async function Layout({
       sidebar={{ enabled: false }}
       tree={source.pageTree[locale]}
     >
-      {children}
+      <LearnLayout shouldShowSidebar={shouldShowSidebar}>
+        {children}
+      </LearnLayout>
     </DocsLayout>
   );
 }
