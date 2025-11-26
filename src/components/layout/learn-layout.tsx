@@ -5,21 +5,11 @@ import { Nav } from "./nav";
 
 function LearnLayout({
   children,
-  shouldShowSidebar,
   language,
 }: {
   children: ReactNode;
-  shouldShowSidebar: boolean;
   language: string;
 }) {
-  if (!shouldShowSidebar) {
-    return (
-      <>
-        <Nav />
-        {children}
-      </>
-    );
-  }
   return (
     <SidebarProvider className="flex flex-col">
       <Nav StartComponent={<SidebarTrigger />} />
