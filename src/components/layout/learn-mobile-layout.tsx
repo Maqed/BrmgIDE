@@ -21,7 +21,7 @@ function MobileLayout({
     <SidebarInset className="flex-row md:hidden">
       <Tabs
         defaultValue="read"
-        className="w-[calc(100vw-18px)]"
+        className="w-full"
         style={
           {
             "--tabs-list-height": TABS_LIST_HEIGHT,
@@ -41,7 +41,7 @@ function MobileLayout({
             />
           </div>
         </TabsContent>
-        <TabsList className="sticky bottom-0 z-50 w-[calc(100vw-18px)] rounded-none">
+        <TabsList className="sticky bottom-0 z-50 w-full rounded-none">
           <TabsTrigger value="read">{t("read")}</TabsTrigger>
           <TabsTrigger value="editor">{t("IDE")}</TabsTrigger>
         </TabsList>
