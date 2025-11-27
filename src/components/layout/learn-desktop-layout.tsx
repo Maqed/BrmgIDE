@@ -33,12 +33,8 @@ function DesktopLayout({
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>
-          <div
-            dir="ltr"
-            className="h-[calc(100svh-var(--nav-height))]! sticky top-0"
-          >
+          <div dir="ltr" className="h-[calc(100svh-var(--nav-height))]!">
             <Editor
-              className="h-[calc(100svh-var(--nav-height))]!"
               defaultLanguage={languageEditorSettings?.language ?? language}
               defaultValue={languageEditorSettings?.comment ?? ""}
             />
