@@ -2,10 +2,16 @@ import NodejsIcon from "@/components/icons/nodejs";
 import PythonIcon from "@/components/icons/python";
 import React from "react";
 
+export type EditorSettings = {
+  language: string;
+  comment: string;
+};
+
 export type LanguageType = {
   id: string;
   name: string;
   icon: React.ComponentType<React.ComponentProps<"svg">>;
+  editorSettings: EditorSettings;
 };
 interface Content {
   titleKey: string;
@@ -25,11 +31,19 @@ export const LANGUAGES: LanguageType[] = [
   {
     id: "python",
     name: "Python",
+    editorSettings: {
+      language: "python",
+      comment: "# Just let your imagination run wild.",
+    },
     icon: PythonIcon,
   },
   {
     id: "nodejs",
     name: "Nodejs",
+    editorSettings: {
+      language: "typescript",
+      comment: "// Just let your imagination run wild.",
+    },
     icon: NodejsIcon,
   },
 ];
