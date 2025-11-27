@@ -1,7 +1,9 @@
-import { ReactNode } from "react";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import type { ReactNode } from "react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import LearnSidebar from "./learn-sidebar";
 import { Nav } from "./nav";
+import { getLanguageById } from "@/lib/learn";
+import DesktopLayout from "./learn-desktop-layout";
 
 function LearnLayout({
   children,
@@ -10,12 +12,18 @@ function LearnLayout({
   children: ReactNode;
   language: string;
 }) {
+  const languageEditorSettings = getLanguageById(language)?.editorSettings;
   return (
     <SidebarProvider className="flex flex-col">
       <Nav StartComponent={<SidebarTrigger />} />
-      <div className="flex flex-1">
+      <div className="flex">
         <LearnSidebar language={language} />
-        <SidebarInset>{children}</SidebarInset>
+        <DesktopLayout
+          language={language}
+          languageEditorSettings={languageEditorSettings}
+        >
+          {children}
+        </DesktopLayout>
       </div>
     </SidebarProvider>
   );
