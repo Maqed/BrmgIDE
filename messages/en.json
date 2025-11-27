@@ -31,5 +31,11 @@
     "learn": {
       "title": "Learn"
     }
+  },
+  "/learn": {
+    "mobile-tabs": {
+      "read": "Read",
+      "IDE": "IDE"
+    }
   }
 }

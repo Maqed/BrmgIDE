@@ -4,6 +4,7 @@ import LearnSidebar from "./learn-sidebar";
 import { Nav } from "./nav";
 import { getLanguageById } from "@/lib/learn";
 import DesktopLayout from "./learn-desktop-layout";
+import MobileLayout from "./learn-mobile-layout";
 
 function LearnLayout({
   children,
@@ -24,6 +25,12 @@ function LearnLayout({
         >
           {children}
         </DesktopLayout>
+        <MobileLayout
+          language={language}
+          languageEditorSettings={languageEditorSettings}
+        >
+          {children}
+        </MobileLayout>
       </div>
     </SidebarProvider>
   );
