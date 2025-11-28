@@ -2,6 +2,8 @@ import NodejsIcon from "@/components/icons/nodejs";
 import PythonIcon from "@/components/icons/python";
 import React from "react";
 
+export type SupportedLanguages = "python" | "javascript";
+
 export type EditorSettings = {
   language: string;
   comment: string;
@@ -62,4 +64,11 @@ export function getLanguageContent(language: string) {
         `Language doesn't exist to get its content. Check getLanguageContent(${language}) call`
       );
   }
+}
+export function getLanguageExtension(language: SupportedLanguages) {
+  const extensions = {
+    python: "py",
+    javascript: "js",
+  };
+  return extensions[language] || "txt";
 }
