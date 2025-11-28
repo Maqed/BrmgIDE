@@ -82,7 +82,7 @@ function Compiler({
       </div>
       <div
         className={cn(
-          "px-2 text-muted-foreground",
+          "px-2 text-muted-foreground whitespace-pre-line",
           error && "text-destructive"
         )}
       >
