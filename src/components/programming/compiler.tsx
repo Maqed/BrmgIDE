@@ -15,7 +15,6 @@ function Compiler({
   translation: {
     run: string;
     pressRun: string;
-    output: string;
   };
   code: string;
   language: string;

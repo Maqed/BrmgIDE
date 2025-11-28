@@ -37,7 +37,6 @@ function MobileLayout({
             languageEditorSettings={languageEditorSettings}
             view="mobile"
             translation={{
-              output: tCompiler("output"),
               pressRun: tCompiler("press-run"),
               run: tCompiler("run"),
             }}

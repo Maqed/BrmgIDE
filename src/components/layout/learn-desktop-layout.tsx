@@ -40,7 +40,6 @@ function DesktopLayout({
             languageEditorSettings={languageEditorSettings}
             view="desktop"
             translation={{
-              output: tCompiler("output"),
               pressRun: tCompiler("press-run"),
               run: tCompiler("run"),
             }}

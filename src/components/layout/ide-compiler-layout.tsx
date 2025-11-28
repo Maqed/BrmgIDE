@@ -21,7 +21,6 @@ function IDECompilerLayout({
   translation: {
     run: string;
     pressRun: string;
-    output: string;
   };
 }) {
   const [code, setCode] = useState("");
@@ -48,7 +47,6 @@ function IDECompilerLayout({
       <ResizablePanel defaultSize={25}>
         <Compiler
           translation={{
-            output: translation.output,
             run: translation.run,
             pressRun: translation.pressRun,
           }}
