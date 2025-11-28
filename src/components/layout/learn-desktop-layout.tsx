@@ -7,6 +7,8 @@ import {
 } from "../ui/resizable";
 import { Editor } from "../programming/editor";
 import { EditorSettings } from "@/lib/learn";
+import Compiler from "../programming/compiler";
+import { useTranslations } from "next-intl";
 
 function DesktopLayout({
   children,
@@ -17,6 +19,7 @@ function DesktopLayout({
   language: string;
   languageEditorSettings?: EditorSettings;
 }) {
+  const tCompiler = useTranslations("/learn.compiler");
   return (
     <SidebarInset
       className="flex-row max-md:hidden"
@@ -33,12 +36,27 @@ function DesktopLayout({
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>
-          <div dir="ltr" className="h-[calc(100svh-var(--nav-height))]!">
-            <Editor
-              defaultLanguage={languageEditorSettings?.language ?? language}
-              defaultValue={languageEditorSettings?.comment ?? ""}
-            />
-          </div>
+          <ResizablePanelGroup direction="vertical">
+            <ResizablePanel defaultSize={75}>
+              <div dir="ltr" className="h-[calc(100svh-var(--nav-height))]!">
+                <Editor
+                  defaultLanguage={languageEditorSettings?.language ?? language}
+                  defaultValue={languageEditorSettings?.comment ?? ""}
+                />
+              </div>
+            </ResizablePanel>
+            <ResizableHandle />
+            <ResizablePanel defaultSize={25}>
+              <Compiler
+                translation={{
+                  output: tCompiler("output"),
+                  run: tCompiler("run"),
+                  pressRun: tCompiler("press-run"),
+                }}
+                language={language}
+              />
+            </ResizablePanel>
+          </ResizablePanelGroup>
         </ResizablePanel>
       </ResizablePanelGroup>
     </SidebarInset>
