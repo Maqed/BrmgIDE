@@ -5,10 +5,9 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "../ui/resizable";
-import { Editor } from "../programming/editor";
 import { EditorSettings } from "@/lib/learn";
-import Compiler from "../programming/compiler";
 import { useTranslations } from "next-intl";
+import IDECompilerLayout from "./ide-compiler-layout";
 
 function DesktopLayout({
   children,
@@ -36,27 +35,16 @@ function DesktopLayout({
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>
-          <ResizablePanelGroup direction="vertical">
-            <ResizablePanel defaultSize={75}>
-              <div dir="ltr" className="h-[calc(100svh-var(--nav-height))]!">
-                <Editor
-                  defaultLanguage={languageEditorSettings?.language ?? language}
-                  defaultValue={languageEditorSettings?.comment ?? ""}
-                />
-              </div>
-            </ResizablePanel>
-            <ResizableHandle />
-            <ResizablePanel defaultSize={25}>
-              <Compiler
-                translation={{
-                  output: tCompiler("output"),
-                  run: tCompiler("run"),
-                  pressRun: tCompiler("press-run"),
-                }}
-                language={language}
-              />
-            </ResizablePanel>
-          </ResizablePanelGroup>
+          <IDECompilerLayout
+            language={language}
+            languageEditorSettings={languageEditorSettings}
+            view="desktop"
+            translation={{
+              output: tCompiler("output"),
+              pressRun: tCompiler("press-run"),
+              run: tCompiler("run"),
+            }}
+          />
         </ResizablePanel>
       </ResizablePanelGroup>
     </SidebarInset>

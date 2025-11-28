@@ -6,6 +6,7 @@ import { ForwardChevron } from "../ui/chevrons";
 
 function Compiler({
   translation,
+  code,
   language,
 }: {
   translation: {
@@ -13,6 +14,7 @@ function Compiler({
     pressRun: string;
     output: string;
   };
+  code: string;
   language: string;
 }) {
   const [output, setOutput] = useState("");

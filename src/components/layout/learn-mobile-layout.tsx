@@ -1,15 +1,9 @@
 import { ReactNode } from "react";
 import { SidebarInset } from "../ui/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Editor } from "../programming/editor";
 import { EditorSettings } from "@/lib/learn";
 import { useTranslations } from "next-intl";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "../ui/resizable";
-import Compiler from "../programming/compiler";
+import IDECompilerLayout from "./ide-compiler-layout";
 
 function MobileLayout({
   children,
@@ -38,30 +32,16 @@ function MobileLayout({
       >
         <TabsContent value="read">{children}</TabsContent>
         <TabsContent value="editor">
-          <ResizablePanelGroup direction="vertical">
-            <ResizablePanel defaultSize={75}>
-              <div
-                dir="ltr"
-                className="h-[calc(100svh-var(--nav-height)-var(--tabs-list-height))]!"
-              >
-                <Editor
-                  defaultLanguage={languageEditorSettings?.language ?? language}
-                  defaultValue={languageEditorSettings?.comment ?? ""}
-                />
-              </div>
-            </ResizablePanel>
-            <ResizableHandle />
-            <ResizablePanel defaultSize={25}>
-              <Compiler
-                translation={{
-                  output: tCompiler("output"),
-                  run: tCompiler("run"),
-                  pressRun: tCompiler("press-run"),
-                }}
-                language={language}
-              />
-            </ResizablePanel>
-          </ResizablePanelGroup>
+          <IDECompilerLayout
+            language={language}
+            languageEditorSettings={languageEditorSettings}
+            view="mobile"
+            translation={{
+              output: tCompiler("output"),
+              pressRun: tCompiler("press-run"),
+              run: tCompiler("run"),
+            }}
+          />
         </TabsContent>
         <TabsList className="sticky bottom-0 z-50 w-full rounded-none">
           <TabsTrigger value="read">{t("read")}</TabsTrigger>

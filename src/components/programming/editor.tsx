@@ -1,11 +1,18 @@
 "use client";
 import { Editor as MonacoEditor, EditorProps } from "@monaco-editor/react";
 import { useTheme } from "next-themes";
-import { useCode } from "./code-context";
+import React from "react";
 
-export function Editor({ defaultValue, ...props }: EditorProps) {
+export function Editor({
+  code,
+  setCode,
+  defaultValue,
+  ...props
+}: EditorProps & {
+  code: string;
+  setCode: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const { theme } = useTheme();
-  const { code, setCode } = useCode();
 
   return (
     <MonacoEditor
