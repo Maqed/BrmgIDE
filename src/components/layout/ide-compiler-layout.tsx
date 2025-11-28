@@ -28,7 +28,7 @@ function IDECompilerLayout({
     <ResizablePanelGroup
       className={
         view == "mobile"
-          ? "h-[calc(100svh-var(--nav-height)-var(--tabs-list-height)-5px)]!"
+          ? "h-[calc(100svh-var(--nav-height)-var(--tabs-list-height)-10px)]!"
           : ""
       }
       direction="vertical"

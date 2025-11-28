@@ -42,9 +42,19 @@ function MobileLayout({
             }}
           />
         </TabsContent>
-        <TabsList className="sticky bottom-0 z-50 w-full rounded-none">
-          <TabsTrigger value="read">{t("read")}</TabsTrigger>
-          <TabsTrigger value="editor">{t("IDE")}</TabsTrigger>
+        <TabsList className="sticky bottom-0 z-50 w-full rounded-none h-(--tabs-list-height) p-0">
+          <TabsTrigger
+            className="h-(--tabs-list-height) rounded-none"
+            value="read"
+          >
+            {t("read")}
+          </TabsTrigger>
+          <TabsTrigger
+            className="h-(--tabs-list-height) rounded-none"
+            value="editor"
+          >
+            {t("IDE")}
+          </TabsTrigger>
         </TabsList>
       </Tabs>
     </SidebarInset>
