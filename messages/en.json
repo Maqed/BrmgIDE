@@ -36,6 +36,11 @@
     "mobile-tabs": {
       "read": "Read",
       "IDE": "IDE"
+    },
+    "compiler": {
+      "run": "Run",
+      "output": "Output will be here",
+      "press-run": "Press run"
     }
   }
 }
