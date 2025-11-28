@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { ForwardChevron } from "../ui/chevrons";
+import { getLanguageExtension } from "@/lib/learn";
+import { Spinner } from "../ui/spinner";
+import { cn } from "@/lib/utils";
 
 function Compiler({
   translation,
@@ -18,11 +21,52 @@ function Compiler({
   language: string;
 }) {
   const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function compileAndSetOutput() {
-    const compiledVersion = "";
+  async function executeCode() {
+    const response = await fetch("https://emkc.org/api/v2/piston/execute", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        language: language,
+        version: "*", // Use latest version
+        files: [
+          {
+            name:
+              "main." +
+              getLanguageExtension(language as "python" | "javascript"),
+            content: code,
+          },
+        ],
+        stdin: "", // Optional: input for the program
+        args: [], // Optional: command line arguments
+        compile_timeout: 10000, // Optional: milliseconds
+        run_timeout: 3000, // Optional: milliseconds
+        compile_memory_limit: -1, // Optional: bytes
+        run_memory_limit: -1, // Optional: bytes
+      }),
+    });
 
-    setOutput(compiledVersion);
+    return await response.json();
+  }
+
+  async function compileAndSetOutput() {
+    if (!code.trim()) return;
+    setIsLoading(true);
+    setError("");
+    setOutput("");
+
+    const compiledVersion = await executeCode();
+    if (compiledVersion.run.stderr) {
+      setError(compiledVersion.run.stderr);
+    } else if (compiledVersion.run.stdout) {
+      setOutput(compiledVersion.run.stdout);
+    }
+
+    setIsLoading(false);
   }
 
   return (
@@ -36,8 +80,15 @@ function Compiler({
           {translation.run}
         </Button>
       </div>
-      <div className="px-2 text-muted-foreground">
-        {output ? output : translation.output}
+      <div
+        className={cn(
+          "px-2 text-muted-foreground",
+          error && "text-destructive"
+        )}
+      >
+        {isLoading && <Spinner />}
+        {output && output}
+        {error && error}
       </div>
     </div>
   );
