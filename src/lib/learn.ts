@@ -1,4 +1,4 @@
-import NodejsIcon from "@/components/icons/nodejs";
+import Javascript from "@/components/icons/javascript";
 import PythonIcon from "@/components/icons/python";
 import React from "react";
 
@@ -25,7 +25,7 @@ interface Content {
 const pythonContent: Content[] = [
   { titleKey: "getting-started", list: [{ titleKey: "introduction" }] },
 ];
-const nodejsContent: Content[] = [
+const javascriptContent: Content[] = [
   { titleKey: "getting-started", list: [{ titleKey: "introduction" }] },
 ];
 
@@ -40,13 +40,13 @@ export const LANGUAGES: LanguageType[] = [
     icon: PythonIcon,
   },
   {
-    id: "nodejs",
-    name: "Nodejs",
+    id: "javascript",
+    name: "Javascript",
     editorSettings: {
       language: "typescript",
       comment: "// Just let your imagination run wild.",
     },
-    icon: NodejsIcon,
+    icon: Javascript,
   },
 ];
 
@@ -57,8 +57,8 @@ export function getLanguageContent(language: string) {
   switch (language) {
     case "python":
       return pythonContent;
-    case "nodejs":
-      return nodejsContent;
+    case "javascript":
+      return javascriptContent;
     default:
       throw new Error(
         `Language doesn't exist to get its content. Check getLanguageContent(${language}) call`

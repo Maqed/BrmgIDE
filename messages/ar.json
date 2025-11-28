@@ -4,8 +4,8 @@
     "open-learn": "اضغط على <link>/learn</link> للبدء بالتعلم"
   },
   "languages": {
-    "nodejs": {
-      "description": "بيئة تشغيل جافاسكريبت لبناء تطبيقات قابلة للتوسع",
+    "javascript": {
+      "description": "لغة برمجة الويب",
       "content": {
         "getting-started": {
           "title": "البدء",

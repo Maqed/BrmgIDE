@@ -4,8 +4,8 @@
     "open-learn": "Press on <link>/learn</link> to start learning"
   },
   "languages": {
-    "nodejs": {
-      "description": "JavaScript runtime for building scalable applications",
+    "javascript": {
+      "description": "The programming language of the Web",
       "content": {
         "getting-started": {
           "title": "Getting Started",
