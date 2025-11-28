@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { SidebarInset } from "../ui/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Editor } from "../ui/editor";
+import { Editor } from "../programming/editor";
 import { EditorSettings } from "@/lib/learn";
 import { useTranslations } from "next-intl";
 

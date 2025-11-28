@@ -5,7 +5,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "../ui/resizable";
-import { Editor } from "../ui/editor";
+import { Editor } from "../programming/editor";
 import { EditorSettings } from "@/lib/learn";
 
 function DesktopLayout({
