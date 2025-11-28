@@ -2,6 +2,10 @@ import { Nav } from "@/components/layout/nav";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+export async function generateMetadata() {
+  return { title: "BrmgIDE" };
+}
+
 export default async function HomePage({
   params,
 }: {
