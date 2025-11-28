@@ -81,6 +81,7 @@ function Compiler({
         </Button>
       </div>
       <div
+        dir="ltr"
         className={cn(
           "px-2 text-muted-foreground whitespace-pre-line",
           error && "text-destructive"
