@@ -68,3 +68,26 @@ console.log("1" + "2");
 ```
 
 هتطبع `12` عشان هو نص. مش هيطبع `3` زي في الارقام
+
+# Boolean
+
+النوع ده ليه قيمتين بس: `true` (صح) و `false` (غلط). وغالبا بنستخدمه في الشروط.
+
+```javascript
+let is_logged_in = true;
+let has_permission = false;
+```
+
+# Null و Undefined
+
+الاتنين معناهم "مفيش قيمة"، بس فيه فرق بسيط بينهم.
+`undefined` معناها ان المتغير اتعمل بس لسه مخدش قيمة.
+`null` دي قيمة بحد ذاتها. ممكن نحطها في متغير عشان نقول انه فاضي.
+
+```javascript
+let user;
+console.log(user); // undefined
+
+let selected_item = null;
+console.log(selected_item); // null
+```
