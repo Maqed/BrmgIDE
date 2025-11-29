@@ -21,7 +21,8 @@
         "getting-started": {
           "title": "Getting Started",
           "list": {
-            "introduction": "Introduction"
+            "introduction": "Introduction",
+            "data-types": "Data types"
           }
         }
       }

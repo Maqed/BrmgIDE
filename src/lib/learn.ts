@@ -23,7 +23,10 @@ interface Content {
 }
 
 const pythonContent: Content[] = [
-  { titleKey: "getting-started", list: [{ titleKey: "introduction" }] },
+  {
+    titleKey: "getting-started",
+    list: [{ titleKey: "introduction" }, { titleKey: "data-types" }],
+  },
 ];
 const javascriptContent: Content[] = [
   { titleKey: "getting-started", list: [{ titleKey: "introduction" }] },

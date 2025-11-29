@@ -1,0 +1,90 @@
+---
+title: Data types
+description: Learn data types and how to use it.
+---
+
+## What are data types anyway?
+
+Data must have types so the language can distinguish between them. For example, there might be numbers. So the language needs to distinguish to know how to handle these numbers. And there must be a data type for the language to know how to handle written text.
+Like for example in the introduction when you created a variable `name` and set it to `"Maged"`. We will now see these types together.
+
+## Int
+
+Int is an integer. Like in math, numbers -2, -1, 0, 1, 2, and so on.
+Python handles integers when you write them like this:
+
+```python
+age = 16 # Notice I wrote the number normally
+```
+
+# Mathematical Operations
+
+We can also perform mathematical operations like addition and subtraction.
+
+```python
+balance = 350
+cost = 100
+balance_after_purchase = balance - cost
+print(balance_after_purchase) # Try printing it yourself and see what happens
+balance_after_refund = balance_after_purchase + cost
+print(balance_after_refund)
+```
+
+```python
+number_of_item = 3
+cost = 100
+total_cost = number_of_item * cost # We use the asterisk to multiply numbers
+print(total_cost)
+
+cost_of_one_item = total_cost / number_of_item # We use the slash (/) to divide
+print(cost_of_one_item)
+```
+
+## Float
+
+Float is used for decimal numbers. Like 1.5, 3.14, 2.71, etc...
+
+```python
+pi = 3.14
+print(pi)
+```
+
+If you want the language to treat the number as a float even if it's not a fraction initially, you must write it with a decimal point after it.
+
+```python
+cost = 100.0
+print(cost)
+```
+
+Of course, you can perform mathematical operations on it just like Int, normally.
+
+# String
+
+String is text. It can be a name, address, or anything that is text.
+
+```python
+name = "Maged"
+print(name)
+```
+
+## Operations on String
+
+You can normally add and multiply strings together. But you cannot subtract or divide them.
+
+```python
+address_one = "Fake Street"
+address_two = "321"
+full_address = address_one + " " + address_two # I added a space so they don't stick together
+print(full_address) # Try printing without the space
+```
+
+```python
+symbol = "#"
+print(symbol * 10)
+```
+
+Try putting numbers in quotation marks and add them.
+```python
+print("1" + "2")
+```
+It will print `12` because it's a string, It won't print `3` as in numbers
