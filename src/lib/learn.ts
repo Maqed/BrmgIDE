@@ -29,7 +29,10 @@ const pythonContent: Content[] = [
   },
 ];
 const javascriptContent: Content[] = [
-  { titleKey: "getting-started", list: [{ titleKey: "introduction" }] },
+  {
+    titleKey: "getting-started",
+    list: [{ titleKey: "introduction" }, { titleKey: "data-types" }],
+  },
 ];
 
 export const LANGUAGES: LanguageType[] = [

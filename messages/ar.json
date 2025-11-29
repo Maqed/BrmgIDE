@@ -10,7 +10,8 @@
         "getting-started": {
           "title": "البدء",
           "list": {
-            "introduction": "مقدمة"
+            "introduction": "مقدمة",
+            "data-types": "انواع البيانات"
           }
         }
       }

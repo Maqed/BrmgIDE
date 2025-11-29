@@ -1,0 +1,69 @@
+---
+title: Data types
+description: Learn data types and how to use it.
+---
+
+# What are data types anyway?
+
+Data must have types so the language can distinguish between them. For example, there might be numbers. So the language needs to distinguish to know how to handle these numbers. And there must be a data type for the language to know how to handle written text.
+Like for example in the introduction when you created a variable `username` and set it to `"Maged"`. We will now see these types together.
+
+# Number
+
+In JavaScript, there is no distinction between Int (integers) and Float (decimals) like in some other languages. All numbers are just `Number` type.
+
+```javascript
+let age = 16; // Integer
+let price = 19.99; // Decimal
+```
+
+## Mathematical Operations
+
+We can also perform mathematical operations like addition and subtraction.
+
+```javascript
+let balance = 350;
+let cost = 100;
+let balance_after_purchase = balance - cost;
+console.log(balance_after_purchase); // Try printing it yourself and see what happens
+let balance_after_refund = balance_after_purchase + cost;
+console.log(balance_after_refund);
+```
+
+```javascript
+let number_of_item = 3;
+let cost = 100;
+let total_cost = number_of_item * cost; // We use the asterisk to multiply numbers
+console.log(total_cost);
+
+let cost_of_one_item = total_cost / number_of_item; // We use the slash (/) to divide
+console.log(cost_of_one_item);
+```
+
+# String
+
+String is text. It can be a name, address, or anything that is text.
+
+```javascript
+let username = "Maged";
+console.log(username);
+```
+
+## Operations on String
+
+You can normally add strings together (concatenation).
+
+```javascript
+let address_one = "Fake Street";
+let address_two = "321";
+let full_address = address_one + " " + address_two; // I added a space so they don't stick together
+console.log(full_address); // Try printing without the space
+```
+
+Try putting numbers in quotation marks and add them.
+
+```javascript
+console.log("1" + "2");
+```
+
+It will print `12` because it's a string, It won't print `3` as in numbers.

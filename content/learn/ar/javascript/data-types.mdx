@@ -1,0 +1,70 @@
+---
+title: انواع البيانات
+description: اتعلم ازاي تستخدم الداتا بأنواعها
+---
+
+# يعني ايه انواع البينات اصلا؟
+
+البيانات لازم تبقا ليها انواع عشان اللغة تعرف تفرق بينها. يعني مثلا ممكن يبقا فيه ارقام. فلازم اللغة تعرف تميز
+عشان تعرف تتعامل مع الارقام دي. ولازم يبقا في نوع من البيانات عشان اللغة تعرف تتعامل مع الكلام المكتوب.
+زي مثلا في المقدمة لما عملت متغير `username` وخليته `"Maged"`. هنشوف دلوقتي سوا الانواع دي.
+
+# Number
+
+في جافاسكريبت، مفيش فرق بين الـ Int (الأرقام الصحيحة) والـ Float (الكسور) زي لغات تانية. كل الأرقام نوعها `Number`.
+
+```javascript
+let age = 16; // رقم صحيح
+let price = 19.99; // رقم عشري
+```
+
+## العمليات الرياضية
+
+ممكن كمان نعمل عمليات رياضية زي الجمع والطرح.
+
+```javascript
+let balance = 350;
+let cost = 100;
+let balance_after_purchase = balance - cost;
+console.log(balance_after_purchase); // جرب تطبعها بنفسك وشوف ايه اللي هيحصل
+let balance_after_refund = balance_after_purchase + cost;
+console.log(balance_after_refund);
+```
+
+```javascript
+let number_of_item = 3;
+let cost = 100;
+let total_cost = number_of_item * cost; // بنستخدم النجمة عشان نضرب الارقام في بعض
+console.log(total_cost);
+
+let cost_of_one_item = total_cost / number_of_item; // بنستخدم السلاش (slash /) عشان نقسم
+console.log(cost_of_one_item);
+```
+
+# String
+
+الـString هو نص. ممكن يكون اسم, عنوان. او اي حاجة تبقا كلام.
+
+```javascript
+let username = "Maged";
+console.log(username);
+```
+
+## العمليات على String
+
+عادي تقدر تجمع الـstrings مع بعض.
+
+```javascript
+let address_one = "Fake Street";
+let address_two = "321";
+let full_address = address_one + " " + address_two; // اضفت المسافة عشان ميبقوش لازقين في بعض
+console.log(full_address); // جرب تطبع من غير المسافة
+```
+
+جرب تحط الارقام في علامات تنصيص وتجمعهم.
+
+```javascript
+console.log("1" + "2");
+```
+
+هتطبع `12` عشان هو نص. مش هيطبع `3` زي في الارقام
