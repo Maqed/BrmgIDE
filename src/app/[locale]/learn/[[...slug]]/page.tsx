@@ -27,7 +27,7 @@ export default async function Page(
   const MDX = page.data.body;
 
   return (
-    <DocsPage full={page.data.full}>
+    <DocsPage footer={{ enabled: false }} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
