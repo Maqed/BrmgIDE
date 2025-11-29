@@ -1,18 +1,15 @@
 import { ReactNode } from "react";
 import { SidebarInset } from "../ui/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { EditorSettings } from "@/lib/learn";
 import { useTranslations } from "next-intl";
 import IDECompilerLayout from "./ide-compiler-layout";
 
 function MobileLayout({
   children,
-  languageEditorSettings,
   language,
 }: {
   children: ReactNode;
   language: string;
-  languageEditorSettings?: EditorSettings;
 }) {
   const TABS_LIST_HEIGHT = "40px";
   const t = useTranslations("/learn.mobile-tabs");
@@ -34,7 +31,6 @@ function MobileLayout({
         <TabsContent value="editor">
           <IDECompilerLayout
             language={language}
-            languageEditorSettings={languageEditorSettings}
             view="mobile"
             translation={{
               pressRun: tCompiler("press-run"),

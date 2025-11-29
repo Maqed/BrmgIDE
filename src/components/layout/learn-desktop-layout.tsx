@@ -5,18 +5,15 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "../ui/resizable";
-import { EditorSettings } from "@/lib/learn";
 import { useTranslations } from "next-intl";
 import IDECompilerLayout from "./ide-compiler-layout";
 
 function DesktopLayout({
   children,
-  languageEditorSettings,
   language,
 }: {
   children: ReactNode;
   language: string;
-  languageEditorSettings?: EditorSettings;
 }) {
   const tCompiler = useTranslations("/learn.compiler");
   return (
@@ -37,7 +34,6 @@ function DesktopLayout({
         <ResizablePanel>
           <IDECompilerLayout
             language={language}
-            languageEditorSettings={languageEditorSettings}
             view="desktop"
             translation={{
               pressRun: tCompiler("press-run"),

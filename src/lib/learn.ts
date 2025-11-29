@@ -4,16 +4,10 @@ import React from "react";
 
 export type SupportedLanguages = "python" | "javascript";
 
-export type EditorSettings = {
-  language: string;
-  comment: string;
-};
-
 export type LanguageType = {
   id: string;
   name: string;
   icon: React.ComponentType<React.ComponentProps<"svg">>;
-  editorSettings: EditorSettings;
 };
 interface Content {
   titleKey: string;
@@ -39,19 +33,11 @@ export const LANGUAGES: LanguageType[] = [
   {
     id: "python",
     name: "Python",
-    editorSettings: {
-      language: "python",
-      comment: "# Just let your imagination run wild.",
-    },
     icon: PythonIcon,
   },
   {
     id: "javascript",
     name: "Javascript",
-    editorSettings: {
-      language: "typescript",
-      comment: "// Just let your imagination run wild.",
-    },
     icon: Javascript,
   },
 ];

@@ -7,15 +7,12 @@ import {
 } from "../ui/resizable";
 import { Editor } from "../programming/editor";
 import Compiler from "../programming/compiler";
-import { EditorSettings } from "@/lib/learn";
 
 function IDECompilerLayout({
   language,
-  languageEditorSettings,
   view,
   translation,
 }: {
-  languageEditorSettings: EditorSettings | undefined;
   view: "desktop" | "mobile";
   language: string;
   translation: {
@@ -35,12 +32,7 @@ function IDECompilerLayout({
     >
       <ResizablePanel defaultSize={75}>
         <div dir="ltr" className="h-full">
-          <Editor
-            code={code}
-            setCode={setCode}
-            defaultLanguage={languageEditorSettings?.language ?? language}
-            defaultValue={languageEditorSettings?.comment ?? ""}
-          />
+          <Editor code={code} setCode={setCode} defaultLanguage={language} />
         </div>
       </ResizablePanel>
       <ResizableHandle />

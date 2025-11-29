@@ -13,24 +13,13 @@ function LearnLayout({
   children: ReactNode;
   language: string;
 }) {
-  const languageEditorSettings = getLanguageById(language)?.editorSettings;
   return (
     <SidebarProvider className="flex flex-col">
       <Nav StartComponent={<SidebarTrigger />} />
       <div className="flex">
         <LearnSidebar language={language} />
-        <DesktopLayout
-          language={language}
-          languageEditorSettings={languageEditorSettings}
-        >
-          {children}
-        </DesktopLayout>
-        <MobileLayout
-          language={language}
-          languageEditorSettings={languageEditorSettings}
-        >
-          {children}
-        </MobileLayout>
+        <DesktopLayout language={language}>{children}</DesktopLayout>
+        <MobileLayout language={language}>{children}</MobileLayout>
       </div>
     </SidebarProvider>
   );
