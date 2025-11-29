@@ -18,6 +18,9 @@ export function Editor({
     <MonacoEditor
       theme={theme === "dark" ? "vs-dark" : "vs-light"}
       value={code ?? defaultValue}
+      options={{
+        minimap: undefined,
+      }}
       onChange={(value) => {
         setCode(value ?? "");
       }}
