@@ -52,8 +52,8 @@ export default function LearnSidebar({
       <SidebarContent className="gap-0">
         {languageContent.map((item) => (
           <Collapsible
-            key={item.titleKey}
-            title={item.titleKey}
+            key={item.translationKey}
+            title={item.translationKey}
             defaultOpen
             className="group/collapsible"
           >
@@ -63,7 +63,7 @@ export default function LearnSidebar({
                 className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
               >
                 <CollapsibleTrigger>
-                  {tLanguage(`${item.titleKey}.title`)}
+                  {tLanguage(`${item.translationKey}.title`)}
                   <ForwardChevron className="ms-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
@@ -71,14 +71,10 @@ export default function LearnSidebar({
                 <SidebarGroupContent>
                   <SidebarMenu>
                     {item.list.map((listItem) => (
-                      <SidebarMenuItem key={listItem.titleKey}>
+                      <SidebarMenuItem key={listItem.translationKey}>
                         <SidebarMenuButton asChild>
-                          <Link
-                            href={`/learn/${language}/${listItem.titleKey}`}
-                          >
-                            {tLanguage(
-                              `${item.titleKey}.list.${listItem.titleKey}`
-                            )}
+                          <Link href={`/learn/${language}${listItem.link}`}>
+                            {tLanguage(listItem.translationKey)}
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>

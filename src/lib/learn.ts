@@ -10,30 +10,42 @@ export type LanguageType = {
   icon: React.ComponentType<React.ComponentProps<"svg">>;
 };
 export type ListItemType = {
-  titleKey: string;
+  translationKey: string;
   link: string;
 };
 
 interface Content {
-  titleKey: string;
+  translationKey: string;
   list: ListItemType[];
 }
 
 const pythonContent: Content[] = [
   {
-    titleKey: "getting-started",
+    translationKey: "getting-started",
     list: [
-      { titleKey: "introduction", link: "/introduction" },
-      { titleKey: "data-types", link: "/data-types" },
+      {
+        translationKey: "getting-started.list.introduction",
+        link: "/introduction",
+      },
+      {
+        translationKey: "getting-started.list.data-types",
+        link: "/data-types",
+      },
     ],
   },
 ];
 const javascriptContent: Content[] = [
   {
-    titleKey: "getting-started",
+    translationKey: "getting-started",
     list: [
-      { titleKey: "introduction", link: "/introduction" },
-      { titleKey: "data-types", link: "/data-types" },
+      {
+        translationKey: "getting-started.list.introduction",
+        link: "/introduction",
+      },
+      {
+        translationKey: "getting-started.list.data-types",
+        link: "/data-types",
+      },
     ],
   },
 ];
