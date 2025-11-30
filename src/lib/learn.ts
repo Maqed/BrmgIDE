@@ -13,19 +13,26 @@ interface Content {
   titleKey: string;
   list: {
     titleKey: string;
+    link: string;
   }[];
 }
 
 const pythonContent: Content[] = [
   {
     titleKey: "getting-started",
-    list: [{ titleKey: "introduction" }, { titleKey: "data-types" }],
+    list: [
+      { titleKey: "introduction", link: "/introduction" },
+      { titleKey: "data-types", link: "/data-types" },
+    ],
   },
 ];
 const javascriptContent: Content[] = [
   {
     titleKey: "getting-started",
-    list: [{ titleKey: "introduction" }, { titleKey: "data-types" }],
+    list: [
+      { titleKey: "introduction", link: "/introduction" },
+      { titleKey: "data-types", link: "/data-types" },
+    ],
   },
 ];
 
