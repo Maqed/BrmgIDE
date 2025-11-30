@@ -12,11 +12,11 @@ export function Editor({
   code: string;
   setCode: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <MonacoEditor
-      theme={theme === "dark" ? "vs-dark" : "vs-light"}
+      theme={resolvedTheme === "dark" ? "vs-dark" : "vs-light"}
       value={code ?? defaultValue}
       options={{
         minimap: undefined,
