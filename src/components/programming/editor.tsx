@@ -19,7 +19,7 @@ export function Editor({
       theme={resolvedTheme === "dark" ? "vs-dark" : "vs-light"}
       value={code ?? defaultValue}
       options={{
-        minimap: undefined,
+        minimap: { enabled: false },
       }}
       onChange={(value) => {
         setCode(value ?? "");
