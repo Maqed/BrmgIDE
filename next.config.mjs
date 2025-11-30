@@ -8,6 +8,7 @@ const withMDX = createMDX();
 const config = {
   reactStrictMode: true,
   output: "export",
+  images: { unoptimized: true },
 };
 
 export default withNextIntl(withMDX(config));
