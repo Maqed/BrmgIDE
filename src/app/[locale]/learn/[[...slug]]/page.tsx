@@ -10,13 +10,19 @@ import { getMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { setRequestLocale } from "next-intl/server";
-import { LANGUAGES } from "@/lib/learn";
+import { isLanguageSupported, LANGUAGES } from "@/lib/learn";
 import { routing } from "@/i18n/routing";
+import LearnFooter from "@/components/layout/learn-footer";
 
 export default async function Page(
   props: PageProps<"/[locale]/learn/[[...slug]]">
 ) {
   const params = await props.params;
+
+  if (!params.slug || !params.slug[0]) return notFound();
+
+  const languageId = params.slug[0];
+  if (!isLanguageSupported(languageId)) return notFound();
 
   // Enable static rendering
   setRequestLocale(params.locale);
@@ -36,6 +42,10 @@ export default async function Page(
             // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
           })}
+        />
+        <LearnFooter
+          languageId={languageId}
+          articleLink={`/${params.slug.slice(1).join("/")}`}
         />
       </DocsBody>
     </DocsPage>
