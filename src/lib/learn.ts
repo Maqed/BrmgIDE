@@ -5,7 +5,7 @@ import React from "react";
 export type SupportedLanguages = "python" | "javascript";
 
 export type LanguageType = {
-  id: string;
+  id: SupportedLanguages;
   name: string;
   icon: React.ComponentType<React.ComponentProps<"svg">>;
 };
@@ -42,10 +42,12 @@ export const LANGUAGES: LanguageType[] = [
   },
 ];
 
-export function getLanguageById(id: string) {
+export function getLanguageById(
+  id: SupportedLanguages
+): LanguageType | undefined {
   return LANGUAGES.find((lang) => lang.id === id);
 }
-export function getLanguageContent(language: string) {
+export function getLanguageContent(language: SupportedLanguages) {
   switch (language) {
     case "python":
       return pythonContent;

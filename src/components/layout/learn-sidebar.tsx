@@ -19,7 +19,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronsUpDown } from "lucide-react";
-import { getLanguageById, getLanguageContent, LANGUAGES } from "@/lib/learn";
+import {
+  getLanguageById,
+  getLanguageContent,
+  LANGUAGES,
+  SupportedLanguages,
+} from "@/lib/learn";
 import { Link } from "@/i18n/navigation";
 import {
   Collapsible,
@@ -32,7 +37,7 @@ export default function LearnSidebar({
   language,
   ...props
 }: React.ComponentProps<typeof Sidebar> & {
-  language: string;
+  language: SupportedLanguages;
 }) {
   const locale = useLocale();
   const tLanguage = useTranslations(`languages.${language}.content`);
@@ -89,7 +94,11 @@ export default function LearnSidebar({
   );
 }
 
-function LearnSideBarHeader({ languageId }: { languageId: string }) {
+function LearnSideBarHeader({
+  languageId,
+}: {
+  languageId: SupportedLanguages;
+}) {
   const language = getLanguageById(languageId);
   if (!language) return null;
   const tLanguage = useTranslations(`languages.${languageId}`);

@@ -7,13 +7,14 @@ import {
 } from "../ui/resizable";
 import { useTranslations } from "next-intl";
 import IDECompilerLayout from "./ide-compiler-layout";
+import { SupportedLanguages } from "@/lib/learn";
 
 function DesktopLayout({
   children,
   language,
 }: {
   children: ReactNode;
-  language: string;
+  language: SupportedLanguages;
 }) {
   const tCompiler = useTranslations("/learn.compiler");
   return (

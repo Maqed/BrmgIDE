@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import LearnSidebar from "./learn-sidebar";
 import { Nav } from "./nav";
-import { getLanguageById } from "@/lib/learn";
+import { SupportedLanguages } from "@/lib/learn";
 import DesktopLayout from "./learn-desktop-layout";
 import MobileLayout from "./learn-mobile-layout";
 
@@ -11,7 +11,7 @@ function LearnLayout({
   language,
 }: {
   children: ReactNode;
-  language: string;
+  language: SupportedLanguages;
 }) {
   return (
     <SidebarProvider className="flex flex-col">

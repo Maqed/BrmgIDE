@@ -3,13 +3,14 @@ import { SidebarInset } from "../ui/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTranslations } from "next-intl";
 import IDECompilerLayout from "./ide-compiler-layout";
+import { SupportedLanguages } from "@/lib/learn";
 
 function MobileLayout({
   children,
   language,
 }: {
   children: ReactNode;
-  language: string;
+  language: SupportedLanguages;
 }) {
   const TABS_LIST_HEIGHT = "40px";
   const t = useTranslations("/learn.mobile-tabs");

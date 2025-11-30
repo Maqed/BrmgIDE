@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { ForwardChevron } from "../ui/chevrons";
-import { getLanguageExtension } from "@/lib/learn";
+import { getLanguageExtension, SupportedLanguages } from "@/lib/learn";
 import { Spinner } from "../ui/spinner";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +17,7 @@ function Compiler({
     pressRun: string;
   };
   code: string;
-  language: string;
+  language: SupportedLanguages;
 }) {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");

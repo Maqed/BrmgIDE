@@ -7,6 +7,7 @@ import {
 } from "../ui/resizable";
 import { Editor } from "../programming/editor";
 import Compiler from "../programming/compiler";
+import { SupportedLanguages } from "@/lib/learn";
 
 function IDECompilerLayout({
   language,
@@ -14,7 +15,7 @@ function IDECompilerLayout({
   translation,
 }: {
   view: "desktop" | "mobile";
-  language: string;
+  language: SupportedLanguages;
   translation: {
     run: string;
     pressRun: string;
