@@ -7,7 +7,9 @@
     "hero-get-started": "ابدأ الآن",
     "hero-image-alt": "شاشة التطبيق",
     "features-title": "بيئة تطوير متكاملة تجعل التعلم أسهل",
-    "features-description": "مع بيئة التطوير المتكاملة، يمكنك التعلم بسهولة دون إعداد بيئات"
+    "features-description": "مع بيئة التطوير المتكاملة، يمكنك التعلم بسهولة دون إعداد بيئات",
+    "cta-title": "تعلم بشكل أفضل 10 مرات مع BrmgIDE",
+    "cta-get-started": "ابدأ الآن"
   },
   "languages": {
     "javascript": {

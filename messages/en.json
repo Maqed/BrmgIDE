@@ -7,7 +7,9 @@
     "hero-get-started": "Get Started",
     "hero-image-alt": "App screen",
     "features-title": "IDE that makes learning easier",
-    "features-description": "With our built-in IDE with compiler, you can learn easily without setting up environments"
+    "features-description": "With our built-in IDE with compiler, you can learn easily without setting up environments",
+    "cta-title": "Learn 10x Better with BrmgIDE",
+    "cta-get-started": "Get Started"
   },
   "languages": {
     "javascript": {

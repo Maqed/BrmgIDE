@@ -1,3 +1,4 @@
+import CallToAction from "@/components/landing/call-to-action";
 import Features from "@/components/landing/features-section";
 import HeroSection from "@/components/landing/hero-section";
 import { Nav } from "@/components/layout/nav";
@@ -23,6 +24,7 @@ export default async function HomePage({
       <Nav />
       <HeroSection />
       <Features />
+      <CallToAction />
     </>
   );
 }
