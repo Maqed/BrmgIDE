@@ -1,7 +1,11 @@
 {
   "/": {
     "hello-world": "مرحبا بالعالم",
-    "open-learn": "اضغط على <link>/learn</link> للبدء بالتعلم"
+    "open-learn": "اضغط على <link>/learn</link> للبدء بالتعلم",
+    "hero-title": "تعلم أي لغة برمجة تريد.",
+    "hero-description": "أداة واحدة تفعل كل شيء. شرح شامل مع بيئة تطوير متكاملة.",
+    "hero-get-started": "ابدأ الآن",
+    "hero-image-alt": "شاشة التطبيق"
   },
   "languages": {
     "javascript": {

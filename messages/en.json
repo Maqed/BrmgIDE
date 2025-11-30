@@ -1,7 +1,11 @@
 {
   "/": {
     "hello-world": "Hello World",
-    "open-learn": "Press on <link>/learn</link> to start learning"
+    "open-learn": "Press on <link>/learn</link> to start learning",
+    "hero-title": "Learn any programming language you want.",
+    "hero-description": "One tool that does it all. Comprehensive explanation with IDE and Compiling.",
+    "hero-get-started": "Get Started",
+    "hero-image-alt": "App screen"
   },
   "languages": {
     "javascript": {
