@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "../ui/button";
 import { Link } from "@/i18n/navigation";
+import { LANGUAGES } from "@/lib/learn";
 import { useTranslations } from "next-intl";
 
 function CallToAction() {
@@ -15,7 +16,9 @@ function CallToAction() {
             </h2>
             <div className="flex justify-center gap-3">
               <Button asChild size="lg">
-                <Link href="/learn">{t("cta-get-started")}</Link>
+                <Link href={`/learn/${LANGUAGES[0].id}/introduction`}>
+                  {t("cta-get-started")}
+                </Link>
               </Button>
             </div>
           </div>

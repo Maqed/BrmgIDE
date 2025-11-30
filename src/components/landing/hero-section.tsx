@@ -8,6 +8,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { isRtlLang } from "rtl-detect";
+import { LANGUAGES } from "@/lib/learn";
 
 export default function HeroSection() {
   const locale = useLocale();
@@ -38,7 +39,7 @@ export default function HeroSection() {
 
               <div className="flex items-center gap-3">
                 <Button asChild size="lg" className="pe-4.5">
-                  <Link href="/learn">
+                  <Link href={`/learn/${LANGUAGES[0].id}/introduction`}>
                     <span className="text-nowrap">{t("hero-get-started")}</span>
                     <ForwardChevron className="opacity-50" />
                   </Link>
