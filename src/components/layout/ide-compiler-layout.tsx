@@ -33,7 +33,7 @@ function IDECompilerLayout({
     >
       <ResizablePanel defaultSize={75}>
         <div dir="ltr" className="h-full">
-          <Editor code={code} setCode={setCode} defaultLanguage={language} />
+          <Editor code={code} setCode={setCode} language={language} />
         </div>
       </ResizablePanel>
       <ResizableHandle />
