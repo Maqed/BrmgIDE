@@ -19,7 +19,7 @@ export default function HeroSection() {
     setMounted(true);
   }, []);
   return (
-    <section className="overflow-hidden min-h-[calc(100svh-var(--nav-height))] bg-linear-to-b to-muted from-background">
+    <section className="overflow-hidden min-h-[calc(100svh-var(--nav-height))]">
       <div className="relative py-36">
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
           <div className="md:w-1/2">
