@@ -6,7 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 import LearnLayout from "@/components/layout/learn-layout";
 import { redirect } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
-import { LANGUAGES, type SupportedLanguages } from "@/lib/learn";
+import { isLanguageSupported, LANGUAGES, type SupportedLanguages } from "@/lib/learn";
 
 export default async function Layout({
   params,
@@ -26,8 +26,7 @@ export default async function Layout({
   }
   if (slug?.length) {
     language = slug[0];
-    const isSupported = LANGUAGES.some((lang) => lang.id === language);
-    if (!isSupported) {
+    if (!isLanguageSupported(language)) {
       notFound();
     }
 
