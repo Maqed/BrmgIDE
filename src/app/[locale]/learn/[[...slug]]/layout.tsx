@@ -6,7 +6,11 @@ import { setRequestLocale } from "next-intl/server";
 import LearnLayout from "@/components/layout/learn-layout";
 import { redirect } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
-import { isLanguageSupported, LANGUAGES, type SupportedLanguages } from "@/lib/learn";
+import {
+  isLanguageSupported,
+  LANGUAGES,
+  type SupportedLanguages,
+} from "@/lib/learn";
 
 export default async function Layout({
   params,
@@ -20,19 +24,17 @@ export default async function Layout({
   // Enable static rendering
   setRequestLocale(locale);
 
-  let language = "";
   if (!slug || !slug.length) {
     redirect({ href: `/learn/${LANGUAGES[0].id}/introduction`, locale });
   }
-  if (slug?.length) {
-    language = slug[0];
-    if (!isLanguageSupported(language)) {
-      notFound();
-    }
 
-    if (slug.length == 1) {
-      redirect({ href: `/learn/${language}/introduction`, locale });
-    }
+  const language = slug![0];
+  if (!isLanguageSupported(language)) {
+    notFound();
+  }
+
+  if (slug!.length == 1) {
+    redirect({ href: `/learn/${language}/introduction`, locale });
   }
 
   return (
@@ -41,9 +43,7 @@ export default async function Layout({
       sidebar={{ enabled: false }}
       tree={source.pageTree[locale]}
     >
-      <LearnLayout language={language as SupportedLanguages}>
-        {children}
-      </LearnLayout>
+      <LearnLayout language={language}>{children}</LearnLayout>
     </DocsLayout>
   );
 }

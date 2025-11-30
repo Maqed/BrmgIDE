@@ -73,5 +73,7 @@ export function getLanguageExtension(language: SupportedLanguages) {
   };
   return extensions[language] || "txt";
 }
-export const isLanguageSupported = (languageId: string) =>
+export const isLanguageSupported = (
+  languageId: string
+): languageId is SupportedLanguages =>
   LANGUAGES.some((lang) => lang.id === languageId);
