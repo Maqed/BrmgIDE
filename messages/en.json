@@ -42,10 +42,10 @@
     "mobile-tabs": {
       "read": "Read",
       "IDE": "IDE"
-    },
-    "compiler": {
-      "run": "Run",
-      "press-run": "Press run"
     }
+  },
+  "compiler": {
+    "run": "Run",
+    "press-run": "Press run"
   }
 }

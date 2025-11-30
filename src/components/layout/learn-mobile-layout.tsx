@@ -14,7 +14,7 @@ function MobileLayout({
 }) {
   const TABS_LIST_HEIGHT = "40px";
   const t = useTranslations("/learn.mobile-tabs");
-  const tCompiler = useTranslations("/learn.compiler");
+  const tCompiler = useTranslations("compiler");
 
   return (
     <SidebarInset className="flex-row md:hidden">

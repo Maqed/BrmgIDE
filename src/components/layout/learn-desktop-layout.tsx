@@ -16,7 +16,7 @@ function DesktopLayout({
   children: ReactNode;
   language: SupportedLanguages;
 }) {
-  const tCompiler = useTranslations("/learn.compiler");
+  const tCompiler = useTranslations("compiler");
   return (
     <SidebarInset
       className="flex-row max-md:hidden"
