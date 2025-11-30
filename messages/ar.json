@@ -5,7 +5,9 @@
     "hero-title": "تعلم أي لغة برمجة تريد.",
     "hero-description": "أداة واحدة تفعل كل شيء. شرح شامل مع بيئة تطوير متكاملة.",
     "hero-get-started": "ابدأ الآن",
-    "hero-image-alt": "شاشة التطبيق"
+    "hero-image-alt": "شاشة التطبيق",
+    "features-title": "بيئة تطوير متكاملة تجعل التعلم أسهل",
+    "features-description": "مع بيئة التطوير المتكاملة، يمكنك التعلم بسهولة دون إعداد بيئات"
   },
   "languages": {
     "javascript": {

@@ -1,3 +1,4 @@
+import Features from "@/components/landing/features-section";
 import HeroSection from "@/components/landing/hero-section";
 import { Nav } from "@/components/layout/nav";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -21,6 +22,7 @@ export default async function HomePage({
     <>
       <Nav />
       <HeroSection />
+      <Features />
     </>
   );
 }

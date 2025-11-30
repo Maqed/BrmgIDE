@@ -5,7 +5,9 @@
     "hero-title": "Learn any programming language you want.",
     "hero-description": "One tool that does it all. Comprehensive explanation with IDE and Compiling.",
     "hero-get-started": "Get Started",
-    "hero-image-alt": "App screen"
+    "hero-image-alt": "App screen",
+    "features-title": "IDE that makes learning easier",
+    "features-description": "With our built-in IDE with compiler, you can learn easily without setting up environments"
   },
   "languages": {
     "javascript": {
