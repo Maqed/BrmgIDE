@@ -9,12 +9,14 @@ export type LanguageType = {
   name: string;
   icon: React.ComponentType<React.ComponentProps<"svg">>;
 };
+export type ListItemType = {
+  titleKey: string;
+  link: string;
+};
+
 interface Content {
   titleKey: string;
-  list: {
-    titleKey: string;
-    link: string;
-  }[];
+  list: ListItemType[];
 }
 
 const pythonContent: Content[] = [
@@ -77,3 +79,37 @@ export const isLanguageSupported = (
   languageId: string
 ): languageId is SupportedLanguages =>
   LANGUAGES.some((lang) => lang.id === languageId);
+
+export function getArticleAndItsNeighbours({
+  languageId,
+  articleLink,
+}: {
+  languageId: SupportedLanguages;
+  articleLink: string;
+}): {
+  prev: ListItemType | null;
+  article: ListItemType | null;
+  next: ListItemType | null;
+} {
+  const content = getLanguageContent(languageId);
+  const contentWithoutAccordion = content.reduce(
+    (accumulator, currentValue) => accumulator.concat(currentValue.list),
+    [] as ListItemType[]
+  );
+  let prev = null;
+  let article = null;
+  let next = null;
+  contentWithoutAccordion.forEach((contentArticle, index) => {
+    if (contentArticle.link == articleLink) {
+      article = contentArticle;
+      if (index != 0) {
+        prev = contentWithoutAccordion[index - 1];
+      }
+      if (index != contentWithoutAccordion.length - 1) {
+        next = contentWithoutAccordion[index + 1];
+      }
+    }
+  });
+
+  return { prev, article, next };
+}
